@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import * as datafusion_wasm from 'datafusion-wasm'
+import { MantineProvider } from '@mantine/core';
+import '@mantine/core/styles.css';
+import { History } from './components/History.tsx';
+import { InputArea } from './components/InputArea.tsx';
+import { Sidebar } from './components/Sidebar.tsx';
+
+console.log(datafusion_wasm.DataFusionContext.greet())
+export const dfCtx = datafusion_wasm.DataFusionContext.new()
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <MantineProvider>
+      <main className="h-svh w-screen">
+        <div className="sidebar">
+          <Sidebar />
+        </div>
+        <div className="history">
+          <History />
+        </div>
+
+        <div className="input-area">
+          <InputArea />
+        </div>
+      </main>
+    </MantineProvider>
+  )
 }
 
-export default App;
+export default App
