@@ -9,6 +9,14 @@ main {
   grid-template-rows: auto auto 20%;
 }
 
+.full-screen-div {
+  height: 100vh;
+  /* Set the div's height to 100% of the viewport height */
+  width: 100vw;
+  /* Set the div's width to 100% of the viewport width */
+}
+
+
 .sidebar {
   grid-area: sidebar;
 }
