@@ -85,6 +85,12 @@ function MyInput({ setHistory, history }: MyInputProps) {
               setInput(history[newHistCur].input);
             }
           }}
+          onBlur={(e) => {
+            if (e.relatedTarget === null) {
+              e.target.focus();
+            }
+          }}
+          autoFocus
         />
       </form>
     </div>
@@ -93,6 +99,7 @@ function MyInput({ setHistory, history }: MyInputProps) {
 
 function Datafusion() {
   const [history, setHistory] = useState<History[]>([]);
+
   return (
     <div className="datafusion-shell">
       <PrintHistory history={history} />

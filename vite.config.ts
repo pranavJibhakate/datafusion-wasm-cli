@@ -8,7 +8,7 @@ import jotaiReactRefresh from "jotai/babel/plugin-react-refresh";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/datafusion-wasm-playground/",
+  base: "/datafusion-wasm-cli/",
   optimizeDeps: {
     exclude: ["datafusion-wasm"],
   },
