@@ -1,6 +1,11 @@
 import "./Datafusion.css";
+
+import Prism from "prismjs";
+import "prismjs/components/prism-sql";
+import "prismjs/themes/prism-funky.css";
+
 import { dfCtx } from "../App";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface History {
   output?: string;
@@ -15,6 +20,10 @@ type MyInputProps = {
 };
 
 function PrintHistory({ history }: PrintHistoryProps) {
+  useEffect(() => {
+    Prism.highlightAll();
+  });
+
   return (
     <div>
       {history.reverse().map((historyIter) => {
@@ -24,7 +33,9 @@ function PrintHistory({ history }: PrintHistoryProps) {
               <div style={{ paddingRight: "0.5rem", width: "fit-content" }}>
                 Datafusion &gt;
               </div>
-              <div>{historyIter.input}</div>
+              <code className="language-sql query-input">
+                {historyIter.input}
+              </code>
             </div>
             {historyIter.output && <div>{historyIter.output}</div>}
             {historyIter.err && <div>{historyIter.err}</div>}

@@ -8,7 +8,6 @@
   flex-direction: row;
 }
 
-
 .input-div {
   display: flex;
   align-items: center;
@@ -29,7 +28,11 @@
   color: white;
 }
 
-/* Optional: Remove form default styles */
 .input-form {
   margin: 0;
+}
+
+.language-sql.query-input {
+  background-color: transparent;
+  font: inherit;
 }
